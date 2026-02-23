@@ -1,0 +1,276 @@
+/* ===== OctoFit Tracker - App Styles ===== */
+
+:root {
+  --octofit-primary: #1a73e8;
+  --octofit-secondary: #0d47a1;
+  --octofit-accent: #00bcd4;
+  --octofit-success: #2e7d32;
+  --octofit-warning: #f9a825;
+  --octofit-bg: #f0f4f8;
+  --octofit-card-bg: #ffffff;
+  --octofit-text: #1a202c;
+  --octofit-muted: #546e7a;
+  --octofit-nav-bg: #0d1b2a;
+  --octofit-nav-accent: #00bcd4;
+  --octofit-border: #cfd8dc;
+}
+
+/* ===== Global ===== */
+body {
+  background-color: var(--octofit-bg);
+  color: var(--octofit-text);
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Navigation ===== */
+.octofit-navbar {
+  background: linear-gradient(135deg, var(--octofit-nav-bg) 0%, #1a237e 100%) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  padding: 0.6rem 1rem;
+}
+
+.octofit-navbar .navbar-brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.octofit-navbar .navbar-brand img {
+  border-radius: 8px;
+  border: 2px solid var(--octofit-nav-accent);
+  padding: 2px;
+  background: #ffffff;
+}
+
+.octofit-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  margin: 0 2px;
+}
+
+.octofit-navbar .nav-link:hover,
+.octofit-navbar .nav-link.active {
+  color: #ffffff !important;
+  background: rgba(0, 188, 212, 0.25) !important;
+  border-bottom: 2px solid var(--octofit-nav-accent);
+}
+
+/* ===== Main container ===== */
+.octofit-main {
+  flex: 1;
+  padding: 2rem 0 4rem;
+}
+
+/* ===== Hero / Welcome ===== */
+.octofit-hero {
+  background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #00bcd4 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(13, 71, 161, 0.3);
+  margin-bottom: 2rem;
+}
+
+.octofit-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  margin-bottom: 0.75rem;
+}
+
+.octofit-hero .lead {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.octofit-hero .hero-logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.6);
+  background: #ffffff;
+  padding: 6px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+.octofit-hero .feature-pills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.octofit-hero .badge-feature {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.35);
+  font-weight: 500;
+}
+
+/* ===== Page headings ===== */
+.octofit-page-title {
+  color: var(--octofit-secondary);
+  font-weight: 700;
+  font-size: 1.75rem;
+  border-left: 5px solid var(--octofit-accent);
+  padding-left: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Tables ===== */
+.octofit-table-wrapper {
+  background: var(--octofit-card-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.octofit-table {
+  margin-bottom: 0;
+}
+
+.octofit-table thead th {
+  background: linear-gradient(90deg, var(--octofit-secondary) 0%, var(--octofit-primary) 100%);
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.octofit-table tbody tr {
+  transition: background 0.15s;
+}
+
+.octofit-table tbody tr:hover {
+  background: rgba(0, 188, 212, 0.08);
+}
+
+.octofit-table tbody td {
+  padding: 0.8rem 1rem;
+  border-color: var(--octofit-border);
+  vertical-align: middle;
+  color: var(--octofit-text);
+}
+
+/* ===== Cards ===== */
+.octofit-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.octofit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+}
+
+.octofit-card .card-header {
+  background: linear-gradient(90deg, var(--octofit-secondary) 0%, var(--octofit-primary) 100%);
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  padding: 0.85rem 1.2rem;
+}
+
+.octofit-card .card-body {
+  background: var(--octofit-card-bg);
+}
+
+.octofit-card .card-footer {
+  background: #f5f7fa;
+  border-top: 1px solid var(--octofit-border);
+  color: var(--octofit-muted);
+}
+
+/* ===== Badges ===== */
+.badge-activity {
+  background: linear-gradient(90deg, var(--octofit-primary), var(--octofit-accent));
+  color: #ffffff;
+  font-size: 0.8rem;
+  padding: 0.35em 0.75em;
+  border-radius: 20px;
+}
+
+.badge-score {
+  background: linear-gradient(90deg, var(--octofit-success), #43a047);
+  color: #ffffff;
+  font-size: 0.9rem;
+  padding: 0.35em 0.8em;
+  border-radius: 20px;
+}
+
+/* ===== Leaderboard rank medals ===== */
+.rank-medal {
+  font-size: 1.4rem;
+}
+
+/* ===== Links ===== */
+a, .nav-link {
+  color: var(--octofit-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--octofit-secondary);
+  text-decoration: underline;
+}
+
+/* ===== Loading spinner ===== */
+.octofit-spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.octofit-spinner {
+  width: 3rem;
+  height: 3rem;
+  border-width: 4px;
+  color: var(--octofit-primary);
+}
+
+/* ===== Alerts ===== */
+.octofit-alert {
+  border-radius: 10px;
+  border-left: 5px solid #c62828;
+  background: #ffebee;
+  color: #b71c1c;
+}
+
+/* ===== Footer ===== */
+.octofit-footer {
+  background: var(--octofit-nav-bg);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+}
+
+.octofit-footer a {
+  color: var(--octofit-nav-accent);
+}
