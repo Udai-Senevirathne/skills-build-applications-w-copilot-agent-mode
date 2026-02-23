@@ -20,13 +20,17 @@
       "name": "Launch React Frontend",
       "type": "node",
       "request": "launch",
-      "program": "${workspaceFolder}/octofit-tracker/frontend/node_modules/react-scripts/scripts/start.js",
-      "cwd": "${workspaceFolder}/octofit-tracker/frontend",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["start"],
-      "port": 3000,
+      "cwd": "${workspaceFolder}/octofit-tracker/frontend",
       "env": {
-        "REACT_APP_CODESPACE_NAME": "${env:CODESPACE_NAME}"
+        "REACT_APP_CODESPACE_NAME": "${env:CODESPACE_NAME}",
+        "BROWSER": "none"
+      },
+      "serverReadyAction": {
+        "pattern": "compiled successfully",
+        "uriFormat": "http://localhost:3000",
+        "action": "openExternally"
       }
     }
   ]

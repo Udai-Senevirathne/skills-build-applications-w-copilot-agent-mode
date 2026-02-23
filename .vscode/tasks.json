@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "OctoFit: Start MongoDB",
+      "type": "shell",
+      "command": "sudo systemctl start mongod || sudo service mongod start || true && ps aux | grep mongod | grep -v grep",
+      "problemMatcher": []
+    },
+    {
+      "label": "OctoFit: makemigrations",
+      "type": "shell",
+      "command": "${workspaceFolder}/octofit-tracker/backend/venv/bin/python ${workspaceFolder}/octofit-tracker/backend/manage.py makemigrations",
+      "options": {
+        "cwd": "${workspaceFolder}/octofit-tracker/backend"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "OctoFit: migrate",
+      "type": "shell",
+      "command": "${workspaceFolder}/octofit-tracker/backend/venv/bin/python ${workspaceFolder}/octofit-tracker/backend/manage.py migrate",
+      "options": {
+        "cwd": "${workspaceFolder}/octofit-tracker/backend"
+      },
+      "problemMatcher": [],
+      "dependsOn": ["OctoFit: makemigrations"]
+    },
+    {
+      "label": "OctoFit: populate_db",
+      "type": "shell",
+      "command": "${workspaceFolder}/octofit-tracker/backend/venv/bin/python ${workspaceFolder}/octofit-tracker/backend/manage.py populate_db",
+      "options": {
+        "cwd": "${workspaceFolder}/octofit-tracker/backend"
+      },
+      "problemMatcher": [],
+      "dependsOn": ["OctoFit: migrate"]
+    },
+    {
+      "label": "OctoFit: Verify MongoDB collections",
+      "type": "shell",
+      "command": "mongosh octofit_db --eval \"db.getCollectionNames()\" && mongosh octofit_db --eval \"db.users.find().pretty()\"",
+      "problemMatcher": []
+    },
+    {
+      "label": "OctoFit: Full Setup (MongoDB → migrate → populate)",
+      "dependsOn": [
+        "OctoFit: Start MongoDB",
+        "OctoFit: populate_db"
+      ],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    }
+  ]
+}
