@@ -21,6 +21,9 @@ if codespace_name:
 else:
     base_url = "http://localhost:8000"
 
+# REST API URL endpoints use the Codespace or localhost base URL
+API_BASE_URL = base_url
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', api_root, name='api-root'),

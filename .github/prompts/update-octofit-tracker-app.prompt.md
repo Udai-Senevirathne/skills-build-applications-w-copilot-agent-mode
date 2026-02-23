@@ -1,6 +1,5 @@
 ---
-mode: 'agent'
-model: GPT-4.1
+agent: GPT-4.1
 description: 'Update the OctoFit Tracker Django app files to support all collections and REST API endpoints.'
 ---
 
